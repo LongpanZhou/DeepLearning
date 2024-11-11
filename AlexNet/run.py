@@ -1,5 +1,5 @@
 from download_dataset import *
-from LeNet import *
+from AlexNet import *
 from cuda_check import *
 import matplotlib.pyplot as plt
 import torch.optim as optim
@@ -21,21 +21,24 @@ def evaluate_accuracy(data_loader, model, device):
 def main():
     device = check_cuda_support()
     time_start = time.time()
-    model = LeNet5()
+    model = AlexNet()
     model.to(device)
 
-    train_loader, test_loader = get_data_loaders()
-    criterion = nn.CrossEntropyLoss()
-    optimizer = optim.SGD(model.parameters(), lr=0.01)
+    data_dir = r'C:\files\ImageNet'
+    print(f"Path: {data_dir} exists: {os.path.exists(data_dir)}")
+    train_loader, test_loader = get_data_loaders(data_dir)
 
-    n_epochs = 10
+    criterion = nn.CrossEntropyLoss()
+    optimizer = optim.SGD(model.parameters(), lr=0.01, momentum=0.9)
+
+    n_epochs = 20
     train_losses, train_accs, test_accs = [], [], []
 
     for epoch in range(n_epochs):
         model.train()
         train_loss_sum, train_acc_sum, n = 0.0, 0.0, 0
         for batch_idx, (data, target) in enumerate(tqdm(train_loader, desc=f'Epoch {epoch + 1}/{n_epochs}')):
-            data, target = data.to(device), target.to(device)
+            data, target = data.to(device, non_blocking=True), target.to(device, non_blocking=True)
             optimizer.zero_grad()
             output = model(data)
             loss = criterion(output, target)
@@ -72,7 +75,7 @@ def main():
     model.eval()
     with torch.no_grad():
         data, target = next(iter(test_loader))
-        data, target = data.to(device), target.to(device)
+        data, target = data.to(device, non_blocking=True), target.to(device, non_blocking=True)
         output = model(data)
         predictions = output.argmax(dim=1)
 
