@@ -10,7 +10,6 @@ class VGG(nn.Module):
             "D": [64, 64, "M", 128, 128, "M", 256, 256, 256, "M", 512, 512, 512, "M", 512, 512, 512, "M"],
             "E": [64, 64, "M", 128, 128, "M", 256, 256, 256, 256, "M", 512, 512, 512, 512, "M", 512, 512, 512, 512, "M"],
         }
-        # No batch_norm=True here
         self.features = self.VGG_block(self.cfgs[cfg], batch_norm=True)
         self.classifier = nn.Sequential(
             nn.Linear(512*7*7, 4096),
@@ -19,7 +18,7 @@ class VGG(nn.Module):
             nn.Linear(4096, 4096),
             nn.ReLU(inplace=True),
             nn.Dropout(0.5),
-            nn.Linear(4096, 100)  # Set to 1000 for ImageNet
+            nn.Linear(4096, 100)
         )
 
     def VGG_block(self, cfg, batch_norm=False):
