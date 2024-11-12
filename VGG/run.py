@@ -1,3 +1,4 @@
+import torchvision
 from download_dataset import *
 from VGG import *
 from cuda_check import *
@@ -19,12 +20,16 @@ def evaluate_accuracy(data_loader, model, device):
     return acc_sum / n
 
 def main():
-    device = check_cuda_support()
+    device, n = check_cuda_support()
     time_start = time.time()
     model = VGG("A")
+
+    if n > 1:
+        model = nn.DataParallel(model)
+
     model.to(device)
 
-    data_dir = r'C:\files\ImageNet'
+    data_dir = r'/nfs/u20/zhoul83/files/ImageNet'
     print(f"Path: {data_dir} exists: {os.path.exists(data_dir)}")
     train_loader, test_loader = get_data_loaders(data_dir)
 

@@ -1,27 +1,28 @@
+import torch
 import torch.nn as nn
 
 class VGG(nn.Module):
-    def __init__(self,cfg="A"):
-        super(VGG,self).__init__()
+    def __init__(self, cfg="A"):
+        super(VGG, self).__init__()
         self.cfgs = {
             "A": [64, "M", 128, "M", 256, 256, "M", 512, 512, "M", 512, 512, "M"],
             "B": [64, 64, "M", 128, 128, "M", 256, 256, "M", 512, 512, "M", 512, 512, "M"],
             "D": [64, 64, "M", 128, 128, "M", 256, 256, 256, "M", 512, 512, 512, "M", 512, 512, 512, "M"],
             "E": [64, 64, "M", 128, 128, "M", 256, 256, 256, 256, "M", 512, 512, 512, 512, "M", 512, 512, 512, 512, "M"],
         }
-        self.features = self.VGG_block(self.cfgs[cfg])
-        self.avgpool = nn.AdaptiveAvgPool2d((7, 7))
+        # No batch_norm=True here
+        self.features = self.VGG_block(self.cfgs[cfg], batch_norm=True)
         self.classifier = nn.Sequential(
-            nn.Linear(512*7*7,4096),
+            nn.Linear(512*7*7, 4096),
             nn.ReLU(inplace=True),
-            nn.Dropout(),
-            nn.Linear(4096,4096),
+            nn.Dropout(0.5),
+            nn.Linear(4096, 4096),
             nn.ReLU(inplace=True),
-            nn.Dropout(),
-            nn.Linear(4096,100)
+            nn.Dropout(0.5),
+            nn.Linear(4096, 100)  # Set to 1000 for ImageNet
         )
 
-    def VGG_block(self, cfg, batch_norm = False):
+    def VGG_block(self, cfg, batch_norm=False):
         layers = []
         in_channels = 3
         for v in cfg:
@@ -36,9 +37,8 @@ class VGG(nn.Module):
                 in_channels = v
         return nn.Sequential(*layers)
 
-    def forward(self,x):
+    def forward(self, x):
         x = self.features(x)
-        x = self.avgpool(x)
         x = x.flatten(1)
         x = self.classifier(x)
         return x
