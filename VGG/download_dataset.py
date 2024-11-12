@@ -12,7 +12,7 @@ class TargetTransform:
     def __call__(self, target):
         return self.class_mapping[self.classes[target]]
 
-def get_data_loaders(data_dir, batch_size=512, num_workers=8, pin_memory=True):
+def get_data_loaders(data_dir, batch_size=128, num_workers=8, pin_memory=True):
     transform = transforms.Compose([
         transforms.Resize(256),
         transforms.CenterCrop(224),

@@ -1,5 +1,5 @@
 from download_dataset import *
-from AlexNet import *
+from VGG import *
 from cuda_check import *
 import matplotlib.pyplot as plt
 import torch.optim as optim
@@ -21,7 +21,7 @@ def evaluate_accuracy(data_loader, model, device):
 def main():
     device = check_cuda_support()
     time_start = time.time()
-    model = AlexNet()
+    model = VGG("A")
     model.to(device)
 
     data_dir = r'C:\files\ImageNet'
@@ -31,7 +31,7 @@ def main():
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.SGD(model.parameters(), lr=0.01, momentum=0.9)
 
-    n_epochs = 20
+    n_epochs = 10
     train_losses, train_accs, test_accs = [], [], []
 
     for epoch in range(n_epochs):
