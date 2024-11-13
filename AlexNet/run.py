@@ -21,7 +21,7 @@ def evaluate_accuracy(data_loader, model, device):
 def main():
     device = check_cuda_support()
     time_start = time.time()
-    model = AlexNet()
+    model = AlexNet(3,100)
     model.to(device)
 
     data_dir = r'C:\files\ImageNet'

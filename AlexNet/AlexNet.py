@@ -1,10 +1,10 @@
 import torch.nn as nn
 
 class AlexNet(nn.Module):
-    def __init__(self):
-        super(AlexNet,self).__init__()
+    def __init__(self, in_channels, classes, **kwargs):
+        super(AlexNet,self).__init__(**kwargs)
         self.features = nn.Sequential(
-            nn.Conv2d(3, 64, kernel_size=11, stride=4, padding=2),
+            nn.Conv2d(in_channels, 64, kernel_size=11, stride=4, padding=2),
             nn.ReLU(inplace=True),
             nn.MaxPool2d(kernel_size=3, stride=2),
             nn.Conv2d(64, 192, kernel_size=5, padding=2),
@@ -26,7 +26,7 @@ class AlexNet(nn.Module):
             nn.Dropout(),
             nn.Linear(4096, 4096),
             nn.ReLU(inplace=True),
-            nn.Linear(4096, 100),
+            nn.Linear(4096, classes),
         )
 
     def forward(self,x):
