@@ -22,7 +22,7 @@ def evaluate_accuracy(data_loader, model, device):
 def main():
     device, n = check_cuda_support()
     time_start = time.time()
-    model = VGG("A")
+    model = VGG(3,100,"A")
 
     if n > 1:
         model = nn.DataParallel(model)
