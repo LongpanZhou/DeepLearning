@@ -21,7 +21,7 @@ def evaluate_accuracy(data_loader, model, device):
 def main():
     device = check_cuda_support()
     time_start = time.time()
-    model = LeNet5()
+    model = LeNet5(1,10)
     model.to(device)
 
     train_loader, test_loader = get_data_loaders()
