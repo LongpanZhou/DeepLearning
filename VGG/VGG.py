@@ -1,8 +1,8 @@
 import torch.nn as nn
 
 class VGG(nn.Module):
-    def __init__(self, in_channels, classes, cfg="A"):
-        super(VGG, self).__init__()
+    def __init__(self, in_channels, classes, cfg="A", **kwargs):
+        super(VGG, self).__init__(**kwargs)
         self.cfgs = {
             "A": [64, "M", 128, "M", 256, 256, "M", 512, 512, "M", 512, 512, "M"],
             "B": [64, 64, "M", 128, 128, "M", 256, 256, "M", 512, 512, "M", 512, 512, "M"],
