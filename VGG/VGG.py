@@ -1,15 +1,17 @@
 import torch.nn as nn
 
 class VGG(nn.Module):
-    def __init__(self, in_channels, classes, cfg="A", **kwargs):
+    def __init__(self, in_channels, classes, name="A", **kwargs):
         super(VGG, self).__init__(**kwargs)
-        self.cfgs = {
+        self.block_config  = {
             "A": [64, "M", 128, "M", 256, 256, "M", 512, 512, "M", 512, 512, "M"],
             "B": [64, 64, "M", 128, 128, "M", 256, 256, "M", 512, 512, "M", 512, 512, "M"],
             "D": [64, 64, "M", 128, 128, "M", 256, 256, 256, "M", 512, 512, 512, "M", 512, 512, 512, "M"],
             "E": [64, 64, "M", 128, 128, "M", 256, 256, 256, 256, "M", 512, 512, 512, 512, "M", 512, 512, 512, 512, "M"],
         }
-        self.features = self.VGG_block(in_channels, self.cfgs[cfg], batch_norm=True)
+        assert name in self.block_config , f"Block configuration {name} not supported"
+        self.name = name
+        self.features = self.VGG_block(in_channels, self.block_config [name], batch_norm=True)
         self.classifier = nn.Sequential(
             nn.Linear(512*7*7, 4096),
             nn.ReLU(inplace=True),
@@ -39,3 +41,6 @@ class VGG(nn.Module):
         x = x.flatten(1)
         x = self.classifier(x)
         return x
+
+    def _get_name(self):
+        return self.name
