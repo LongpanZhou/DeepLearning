@@ -22,13 +22,12 @@ def transition_block(input_channels, num_channels):
 class DenseBlock(nn.Module):
     def __init__(self, num_convs, in_channels, out_channels):
         super(DenseBlock, self).__init__()
-        layer = []
+        self.net_blocks = nn.Sequential()
         for i in range(num_convs):
-            layer.append(ConvBlock(in_channels + i * out_channels, out_channels))
-        self.net = nn.Sequential(*layer)
+            self.net_blocks.add_module(f'block_{i+1}', ConvBlock(in_channels + i * out_channels, out_channels))
 
     def forward(self, x):
-        for blk in self.net:
+        for blk in self.net_blocks:
             y = blk(x)
             x = torch.cat((x, y), dim=1)
         return x
