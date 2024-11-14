@@ -65,7 +65,6 @@ def main():
     plt.plot(range(1, n_epochs + 1), test_accs, label='Test Acc')
     plt.xlabel('Epoch')
     plt.legend()
-    plt.title("LeNet5 Training Progress")
     plt.show()
 
     # Visualization of predictions after training
