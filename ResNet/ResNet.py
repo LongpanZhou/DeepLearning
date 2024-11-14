@@ -44,6 +44,7 @@ class ResNet(nn.Module):
             '152': [3, 8, 36, 3]
         }
         assert name in self.block_config.keys(), f'name should be in {self.block_config.keys()}'
+        self.name = name
         self.net_entry = nn.Sequential(
             nn.Conv2d(in_channels, 64, kernel_size=7, stride=2, padding=3),
             nn.BatchNorm2d(64),
@@ -68,3 +69,6 @@ class ResNet(nn.Module):
 
     def forward(self, x):
         return self.net(x)
+
+    def _get_name(self):
+        return self.name
