@@ -50,17 +50,16 @@ class DenseNet(nn.Module):
         )
 
         num_channels, growth_rate = 64, 32
-        blks = []
-
+        self.net_blocks = []
         for i, num_layers in enumerate(self.block_config[name]):
-            blks.append(DenseBlock(num_layers, num_channels, growth_rate))
+            self.net_blocks.append(DenseBlock(num_layers, num_channels, growth_rate))
             num_channels += num_layers * growth_rate
             if i != len(self.block_config[name]) - 1:
-                blks.append(transition_block(num_channels, num_channels // 2))
+                self.net_blocks.append(transition_block(num_channels, num_channels // 2))
                 num_channels = num_channels // 2
 
         self.net = nn.Sequential(
-            self.b1, *blks,
+            self.b1, *self.net_blocks,
             nn.BatchNorm2d(num_channels),
             nn.ReLU(),
             nn.AdaptiveMaxPool2d((1, 1)),
