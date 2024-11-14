@@ -3,7 +3,7 @@ from tqdm import tqdm
 import time
 import matplotlib.pyplot as plt
 from download_dataset import *
-from ResNet import *
+from DenseNet import *
 from cuda_check import *
 
 def evaluate_accuracy(data_loader, model, device):
@@ -20,7 +20,7 @@ def evaluate_accuracy(data_loader, model, device):
 def main():
     device, n = check_cuda_support()
     time_start = time.time()
-    model = ResNet(3,100)
+    model = DenseNet(3,100)
 
     selected_gpu = select_gpu_with_most_memory(device, n)
     if selected_gpu is not None:
