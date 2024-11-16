@@ -24,11 +24,20 @@
 - **Paper**: [Going Deeper with Convolutions](https://arxiv.org/pdf/1409.4842)
 - **PyTorch**: https://github.com/pytorch/vision/blob/main/torchvision/models/googlenet.py
 
+### 5. [ResNet](https://github.com/LongpanZhou/DeepLearning/tree/ResNet)
+- **Paper**: [Deep Residual Learning for Image Recognition](https://arxiv.org/pdf/1512.03385)
+- **PyTorch**: https://github.com/pytorch/vision/blob/main/torchvision/models/resnet.py
+
+### 6. [DenseNet](https://github.com/LongpanZhou/DeepLearning/tree/DenseNet)
+- **Paper**: [Densely Connected Convolutional Networks](https://arxiv.org/pdf/1608.06993)
+- **PyTorch**: https://github.com/liuzhuang13/DenseNet
+
 **UNDER DEVELOPMENT**
 ---
 
 ## Innovations
 - [Deep Learning using Rectified Linear Units (ReLU)](https://arxiv.org/pdf/1803.08375)
 - [Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift](https://arxiv.org/pdf/1502.03167)
+- [Squeeze-and-Excitation Networks](https://arxiv.org/pdf/1709.01507)
 
 ![Dancing](https://media1.tenor.com/m/9tvIKCnNrgMAAAAd/deeper-and-deeper-madonna.gif)
