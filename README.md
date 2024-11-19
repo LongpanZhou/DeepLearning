@@ -52,7 +52,7 @@ Once the feature extraction module has processed the input data and extracted th
 - **Training**:  
   The weights of the FC layers are learned through backpropagation, where the error (difference between predicted output and actual labels) is propagated back to adjust the parameters, improving the model’s ability to classify new data.
 
-### Changes
+## Changes
 1. This serves as a proof of concept showing that deep learning can be applied commercially, or real-world applications.
 2. Although the model could be built with only FC layers, the paper highlights the importance of using CNNs for feature extraction, enabling better handling of complex data.
 3. The general structure, which separates the model into a Feature Extraction Module (CNNs) and a Trainable Classifier Module (FCs), has proven to be effective and has influenced the design of future models.
