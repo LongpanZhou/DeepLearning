@@ -5,6 +5,13 @@
 > [!NOTE]  
 > As the models become more complex, training them on a personal computer may become challenging due to hardware limitations. In such cases, I strongly recommend using a computing cluster or cloud services to facilitate training.
 ---
+## DataSet
+This project uses [ImageNet100](https://www.kaggle.com/datasets/ambityga/imagenet100) (16.4GB) - a subset of ImageNet with 100 classes, for training and benchmarking models.
+
+Download Link:
+```
+https://storage.googleapis.com/kaggle-data-sets/1500837/2491748/bundle/archive.zip?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gcp-kaggle-com%40kaggle-161607.iam.gserviceaccount.com%2F20241119%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20241119T032223Z&X-Goog-Expires=259200&X-Goog-SignedHeaders=host&X-Goog-Signature=9627a949319acd5429ce0dd2a00abd57f0633dc700701011ec65651842cf4553080e29e5d30b8bb76520de6c29213f7344a278786161ba61c41e79c21a3fd3c96bdc5ae072e39fe386a3f52c290ca7d3423abfead746cf8299d82cae6f7f6b9d0212e40d6fa1a0bd643062680866677feebbc833b790a7ab2b068aa7a41800c4aaeab168953e92152ee5e22b539f5b59700a1726f9e8be5202669ac720a8a390dac6180c05fc1c5985d31e897664e2b19294f070a0395fa24c041d86ed6e91b1bfa64c38ee1e4381e3ad8ed949ade3fd4e82992bac4a20aa381706bfec1f4fd53884cf0e2f30ea70c0926157a794877b029a4e250829bd6afa8709c102fc24ee
+```
 
 ## Models
 
@@ -32,10 +39,20 @@
 - **Paper**: [Densely Connected Convolutional Networks](https://arxiv.org/pdf/1608.06993)
 - **PyTorch**: https://github.com/liuzhuang13/DenseNet
 
+### 7. [MobileNet](https://github.com/LongpanZhou/DeepLearning/tree/MobileNet)
+- **Paper**: [MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications](https://arxiv.org/pdf/1704.04861)
+- **Paper**: [MobileNetV2: Inverted Residuals and Linear Bottlenecks](https://arxiv.org/pdf/1801.04381)
+- **Paper**: [Searching for MobileNetV3](https://arxiv.org/pdf/1905.02244)
+
+### 8. [ShuffleNet](https://github.com/LongpanZhou/DeepLearning/tree/MobileNet)
+- **Paper**: [ShuffleNet: An Extremely Efficient Convolutional Neural Network for Mobile Devices](https://arxiv.org/pdf/1707.01083)
+- **Paper**: [ShuffleNet V2: Practical Guidelines for Efficient CNN Architecture Design](https://arxiv.org/pdf/1807.11164)
+
 **UNDER DEVELOPMENT**
 ---
 
 ## Innovations
+- [Visualizing and Understanding Convolutional Networks](https://arxiv.org/pdf/1311.2901)
 - [Deep Learning using Rectified Linear Units (ReLU)](https://arxiv.org/pdf/1803.08375)
 - [Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift](https://arxiv.org/pdf/1502.03167)
 - [Squeeze-and-Excitation Networks](https://arxiv.org/pdf/1709.01507)
