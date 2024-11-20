@@ -53,10 +53,6 @@ All the models are under different branches - current: main
 - **Paper**: [ShuffleNet: An Extremely Efficient Convolutional Neural Network for Mobile Devices](https://arxiv.org/pdf/1707.01083)
 - **Paper**: [ShuffleNet V2: Practical Guidelines for Efficient CNN Architecture Design](https://arxiv.org/pdf/1807.11164)
 
-**UNDER DEVELOPMENT**
-
-EffeientNet, ViT, DeiT, Swin, ConvNet, InceptionNeXt, Mamba (Not sure if I will implement all)
-
 ---
 
 ## Innovations
@@ -65,5 +61,9 @@ EffeientNet, ViT, DeiT, Swin, ConvNet, InceptionNeXt, Mamba (Not sure if I will 
 - [Deep Learning using Rectified Linear Units (ReLU)](https://arxiv.org/pdf/1803.08375)
 - [Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift](https://arxiv.org/pdf/1502.03167)
 - [Squeeze-and-Excitation Networks](https://arxiv.org/pdf/1709.01507)
+
+---
+
+## UNDER DEVELOPMENT
 
 ![Meme](https://github.com/user-attachments/assets/24dd26c3-2b1c-486c-9cb4-93fdc19c5b46)
