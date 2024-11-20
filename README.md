@@ -18,6 +18,8 @@ https://storage.googleapis.com/kaggle-data-sets/1500837/2491748/bundle/archive.z
 
 ## Models
 
+All the models are under different branches - current: main
+
 ### 1. [LeNet](https://github.com/LongpanZhou/DeepLearning/tree/LeNet)
 - **Paper**: [GradientBased Learning Applied to Document Recognition](http://vision.stanford.edu/cs598_spring07/papers/Lecun98.pdf)
 - **DigitalOcean**: [https://github.com/pytorch/vision/blob/main/torchvision/models/alexnet.py](https://www.digitalocean.com/community/tutorials/writing-lenet5-from-scratch-in-python)
@@ -52,12 +54,16 @@ https://storage.googleapis.com/kaggle-data-sets/1500837/2491748/bundle/archive.z
 - **Paper**: [ShuffleNet V2: Practical Guidelines for Efficient CNN Architecture Design](https://arxiv.org/pdf/1807.11164)
 
 **UNDER DEVELOPMENT**
+
+EffeientNet, ViT, DeiT, Swin, ConvNet, InceptionNeXt, Mamba (Not sure if I will implement all)
+
 ---
 
 ## Innovations
 - [Visualizing and Understanding Convolutional Networks](https://arxiv.org/pdf/1311.2901)
+- [Dropout: A Simple Way to Prevent Neural Networks from Overfitting](https://www.cs.toronto.edu/~hinton/absps/JMLRdropout.pdf)
 - [Deep Learning using Rectified Linear Units (ReLU)](https://arxiv.org/pdf/1803.08375)
 - [Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift](https://arxiv.org/pdf/1502.03167)
 - [Squeeze-and-Excitation Networks](https://arxiv.org/pdf/1709.01507)
 
-![Dancing](https://media1.tenor.com/m/9tvIKCnNrgMAAAAd/deeper-and-deeper-madonna.gif)
+![Meme](https://github.com/user-attachments/assets/24dd26c3-2b1c-486c-9cb4-93fdc19c5b46)
