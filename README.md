@@ -49,7 +49,7 @@ All the models are under different branches - current: main
 - **Paper**: [MobileNetV2: Inverted Residuals and Linear Bottlenecks](https://arxiv.org/pdf/1801.04381)
 - **Paper**: [Searching for MobileNetV3](https://arxiv.org/pdf/1905.02244)
 
-### 8. [ShuffleNet](https://github.com/LongpanZhou/DeepLearning/tree/MobileNet)
+### 8. [ShuffleNet](https://github.com/LongpanZhou/DeepLearning/tree/ShuffleNet?tab=readme-ov-file)
 - **Paper**: [ShuffleNet: An Extremely Efficient Convolutional Neural Network for Mobile Devices](https://arxiv.org/pdf/1707.01083)
 - **Paper**: [ShuffleNet V2: Practical Guidelines for Efficient CNN Architecture Design](https://arxiv.org/pdf/1807.11164)
 
